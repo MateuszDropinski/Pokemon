@@ -7,6 +7,7 @@ const Section = styled.article`
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    margin-top:20px;
 `;
 
 const PageSection = (props) =>
