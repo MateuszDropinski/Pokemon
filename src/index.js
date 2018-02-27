@@ -5,10 +5,11 @@ import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
 import { injectGlobal } from 'styled-components';
+import ReduxPromise from 'redux-promise';
 
 import reducers from './reducers';
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
 injectGlobal`
     *
@@ -18,9 +19,10 @@ injectGlobal`
     body,html
     {
         font-size:62.5%;
+        font-family: 'Raleway', sans-serif;
         margin:0px;
     }
-`
+`;
 
 ReactDOM.render(
     <Provider store={createStoreWithMiddleware(reducers)}>
