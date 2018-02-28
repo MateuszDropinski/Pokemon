@@ -9,7 +9,7 @@ const PageSection = (props) =>
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        padding:20px;
+        padding:15px;
     `;
     
     return (

@@ -5,8 +5,8 @@ class PokemonTypes extends Component
 {    
     renderType(typeInfo)
     {
-        const { type, color, backgroundColor } = typeInfo;
-        return <PokemonType key={type} type={type} color={color} backgroundColor={backgroundColor} />;
+        const type = Object.keys(typeInfo)[0];
+        return <PokemonType key={type} type={type}/>;
     }
     
     render()
