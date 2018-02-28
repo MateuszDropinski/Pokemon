@@ -1,7 +1,7 @@
 import React from 'react';
 import { CardSection, PokemonType } from './';
 import styled from 'styled-components';
-import Types from '../reducers/types';
+import TypesData from '../reducers/types';
 
 const PokemonCard = (props) =>
 {
@@ -14,14 +14,25 @@ const PokemonCard = (props) =>
         return  <PokemonType key={type} type={type} />;
     }
     
-    let cardColor;
-    
-    Types.map(type => {
-        if(Object.keys(type)[0] == types[0])
+    const createBackground = () =>
+    {
+        let firstCardColor, secondCardColor;
+        
+        TypesData.map(type => {
+            if(type[types[0]]) firstCardColor = type[types[0]].backgroundColor + '44';
+            if(type[types[1]]) secondCardColor = type[types[1]].backgroundColor + '44';
+        });
+        
+        if(types[1])
         {
-            cardColor = type[types[0]].backgroundColor;
+            return `linear-gradient(to bottom right, ${firstCardColor}, ${secondCardColor})`;
         }
-    });
+        
+        else 
+        {            
+            return firstCardColor;
+        }
+    }
     
     const Card = styled.article`
         box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
@@ -31,6 +42,7 @@ const PokemonCard = (props) =>
         flex-wrap:wrap;
         margin:0px 20px 20px 20px;
         padding:20px;
+        background:${createBackground()};
     `;
     
     const Image = styled.img`
