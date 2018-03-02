@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const CardSection = (props) =>
+const CardSection = ({ name, value}) =>
 {
     const InfoWrapper = styled.p`
         width:100%;
@@ -15,8 +15,8 @@ const CardSection = (props) =>
     
     return (
         <InfoWrapper>
-            <span>{props.name}</span>
-            <span>{props.value}</span>
+            <span>{name}</span>
+            <span>{value}</span>
         </InfoWrapper>
     )
 }

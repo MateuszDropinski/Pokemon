@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const PageSection = (props) =>
+const PageSection = ({ children }) =>
 {
     const Section = styled.article`
         width: 100%;
@@ -14,7 +14,7 @@ const PageSection = (props) =>
     
     return (
         <Section>
-            {props.children}
+            {children}
         </Section>
     )
 };

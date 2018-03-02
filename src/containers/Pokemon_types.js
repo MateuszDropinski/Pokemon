@@ -2,18 +2,30 @@ import React, { Component } from 'react';
 import { PageSection, PokemonType } from '../components';
 
 class PokemonTypes extends Component
-{    
-    renderType(typeInfo)
+{ 
+    renderTypes()
     {
-        const type = Object.keys(typeInfo)[0];
-        return <PokemonType key={type} type={type}/>;
+        let PokemonTypes = [];
+        const { types } = this.props;
+        
+        for(let key in types)
+        {
+            PokemonTypes.push(<PokemonType 
+            key={key} 
+            type={key} 
+            backgroundColor={types[key].backgroundColor}
+            color={types[key].color}
+            ></PokemonType>);
+        }
+        
+        return PokemonTypes;
     }
     
     render()
     {
         return(
             <PageSection>
-                {this.props.types.map(type => this.renderType(type))}
+                {this.renderTypes()}
             </PageSection>
         )
     }

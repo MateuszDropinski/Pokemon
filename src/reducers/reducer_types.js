@@ -1,94 +1,99 @@
-export default [{"fire": {
+export default function()
+{
+    return {
+        "fire": {
             "color":"#ffffff",
             "backgroundColor":"#d6731f"
-        }},
-        {"all":
+        },
+        "all":
         {
             "color":"#ffffff", 
             "backgroundColor":"#000000"
-        }},
-        {"normal":
+        },
+        "normal":
         {
             "color":"#000000",
             "backgroundColor":"#ffffff"
-        }},
-        {"fighting":
+        },
+        "fighting":
         {
             "color":"#ffffff",
             "backgroundColor":"#a00f41"
-        }},
-        {"flying":
+        },
+        "flying":
         {
             "color":"#ffffff",
             "backgroundColor":"#7dc1e0"
-        }},
-        {"poison":
+        },
+        "poison":
         {
             "color":"#ffffff",
             "backgroundColor":"#5d085a"
-        }},
-        {"ground":
+        },
+        "ground":
         {
             "color":"#ffffff",
             "backgroundColor":"#a5a557"
-        }},
-        {"rock":
+        },
+        "rock":
         {
             "color":"#ffffff",
             "backgroundColor":"#8d661e"
-        }},
-        {"bug":
+        },
+        "bug":
         {
             "color":"#ffffff",
             "backgroundColor":"#5c763e"
-        }},
-        {"ghost":
+        },
+        "ghost":
         {
             "color":"#ffffff",
             "backgroundColor":"#3a0041"
-        }},
-        {"steel":
+        },
+        "steel":
         {
             "color":"#ffffff",
             "backgroundColor":"#575757"
-        }},
-        {"water":
+        },
+        "water":
         {
             "color":"#ffffff",
             "backgroundColor":"#226ed6"
-        }},
-        {"grass":
+        },
+        "grass":
         {
             "color":"#ffffff",
             "backgroundColor":"#2de04f"
-        }},
-        {"electric":
+        },
+        "electric":
         {
             "color":"#ffffff",
             "backgroundColor":"#e2e23e"
-        }},
-        {"psychic":
+        },
+        "psychic":
         {
             "color":"#ffffff",
             "backgroundColor":"#d840b5"
-        }},
-        {"ice":
+        },
+        "ice":
         {
             "color":"#ffffff",
             "backgroundColor":"#51eded"
-        }},
-        {"dragon":
+        },
+        "dragon":
         {
             "color":"#ffffff",
             "backgroundColor":"#122f8e"
-        }},
-        {"dark":
+        },
+        "dark":
         {
             "color":"#ffffff",
             "backgroundColor":"#502e2e"
-        }},
-        {"fairy":
+        },
+        "fairy":
         {
             "color":"#ffffff",
             "backgroundColor":"#ebb3e3"
-        }}];
+        }
+    };
+}

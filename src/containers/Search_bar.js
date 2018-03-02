@@ -1,17 +1,24 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { PageSection } from '../components';
-
-const TextInput = styled.input`
-    width:200px;
-    font-size: 1rem;
-    padding:5px;
-`;
+import { PageSection, Input } from '../components';
 
 const SubmitInput = styled.input`
     width:50px;
     font-size: 1rem;
     padding:5px;
+    border:1px solid #000000;
+    border-radius:2px;
+    background-color:#ffffff;
+    color:#000000;
+    margin-left:5px;
+    transition:.25s;
+    cursor:pointer;
+
+    &:hover
+    {
+        background-color:#000000;
+        color:#ffffff;
+    }
 `;
 
 class SearchBar extends Component
@@ -40,7 +47,7 @@ class SearchBar extends Component
         return (
             <PageSection>
                 <form onSubmit={ this.onFormSubmit.bind(this) }>
-                    <TextInput
+                    <Input
                         placeholder="Find your pokemon..."
                         value = { this.state.searchPokemon }
                         onChange = { this.onInputChange.bind(this) }

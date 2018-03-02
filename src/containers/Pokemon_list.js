@@ -5,7 +5,9 @@ class PokemonList extends Component
 {
     renderPokemonList(pokemon)
     {
-        return <PokemonCard pokemon={pokemon} key={pokemon.name} />
+        let typesColors = [];
+        pokemon.types.map(type => typesColors.push(this.props.types[type]));
+        return <PokemonCard pokemon={pokemon} key={pokemon.name} typesColors={typesColors} />
     }
     
     render()

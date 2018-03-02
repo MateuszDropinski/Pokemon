@@ -1,39 +1,9 @@
 import React from 'react';
-import { CardSection, PokemonType } from './';
+import { CardSection, PokemonType, Header } from './';
 import styled from 'styled-components';
-import TypesData from '../reducers/types';
 
-const PokemonCard = (props) =>
+const PokemonCard = ({ pokemon, typesColors }) =>
 {
-    let { name, height, weight, image, types } = props.pokemon;
-    height/=10;
-    weight/=10;
-    
-    const renderTypes = (type) =>
-    {
-        return  <PokemonType key={type} type={type} />;
-    }
-    
-    const createBackground = () =>
-    {
-        let firstCardColor, secondCardColor;
-        
-        TypesData.map(type => {
-            if(type[types[0]]) firstCardColor = type[types[0]].backgroundColor + '44';
-            if(type[types[1]]) secondCardColor = type[types[1]].backgroundColor + '44';
-        });
-        
-        if(types[1])
-        {
-            return `linear-gradient(to bottom right, ${firstCardColor}, ${secondCardColor})`;
-        }
-        
-        else 
-        {            
-            return firstCardColor;
-        }
-    }
-    
     const Card = styled.article`
         box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
         width:200px;
@@ -42,7 +12,7 @@ const PokemonCard = (props) =>
         flex-wrap:wrap;
         margin:0px 20px 20px 20px;
         padding:20px;
-        background:${createBackground()};
+        background:${props => props.background};
     `;
     
     const Image = styled.img`
@@ -50,16 +20,33 @@ const PokemonCard = (props) =>
         height:auto;
         align-self:center;
         box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-        margin-bottom:5px;
-    `
+        margin:5px 0px;
+    `;
+    
+    let { name, height, weight, image, types } = pokemon;
+    height/=10;
+    weight/=10;
+    
+    const renderType = (type, colors) =>
+    {
+        return  <PokemonType key={type} type={type} backgroundColor={colors.backgroundColor} color={colors.color} />;
+    }
+    
+    const createBackground = () =>
+    {
+        let firstCardColor = typesColors[0].backgroundColor + '44';
+        let secondCardColor = (typesColors[1]) ? typesColors[1].backgroundColor + '44' : null;
+        
+        return (types[1]) ? `linear-gradient(to bottom right, ${firstCardColor}, ${secondCardColor})` : firstCardColor;
+    } 
     
     return(
-        <Card>
+        <Card background={() => createBackground()}>
+            <Header>{name}</Header>     
             <Image src={image} alt={name + " image"} />
-            <CardSection name="name" value={name}></CardSection>
             <CardSection name="height" value={height + " m"}></CardSection>
             <CardSection name="weight" value={weight + " kg"}></CardSection>
-            {types.map(type => renderTypes(type))}
+            {types.map((type,index) => renderType(type, typesColors[index]))}
         </Card>
     )
 }
