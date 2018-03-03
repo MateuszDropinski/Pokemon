@@ -23,16 +23,22 @@ const TypeTile = styled.button`
 
 class PokemonType extends Component
 {   
+    onButtonClick(e, type)
+    {
+        e.preventDefault();
+        this.props.setType(type);
+    }
+    
     render()
     {
-        const { color, backgroundColor, type, setType } = this.props;
+        const { color, backgroundColor, type } = this.props;
         
         return (
             <TypeTile 
                backgroundColor={backgroundColor} 
-               color={color} 
-               type={type} 
-               onClick={() => setType(type)}
+               color = {color} 
+               type = {type} 
+               onClick = {(e) => this.onButtonClick(e, type)}
             >
                 {type}
             </TypeTile>

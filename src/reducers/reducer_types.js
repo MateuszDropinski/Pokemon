@@ -1,10 +1,6 @@
 export default function()
 {
     return {
-        "fire": {
-            "color":"#ffffff",
-            "backgroundColor":"#d6731f"
-        },
         "all":
         {
             "color":"#ffffff", 
@@ -14,6 +10,10 @@ export default function()
         {
             "color":"#000000",
             "backgroundColor":"#ffffff"
+        },
+        "fire": {
+            "color":"#ffffff",
+            "backgroundColor":"#d6731f"
         },
         "fighting":
         {
