@@ -85,11 +85,6 @@ export default function()
             "color":"#ffffff",
             "backgroundColor":"#122f8e"
         },
-        "dark":
-        {
-            "color":"#ffffff",
-            "backgroundColor":"#502e2e"
-        },
         "fairy":
         {
             "color":"#ffffff",

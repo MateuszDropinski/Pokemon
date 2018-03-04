@@ -6,22 +6,6 @@ import { Header, PageSection } from './components';
 import { connect } from 'react-redux';
 
 class App extends Component {   
-    
-    constructor(props)
-    {
-        super(props);
-        
-        this.state = { activePokemonList: props.pokemon };
-    }
-    
-    componentWillReceiveProps({ activeType }) {this.filterPokemonList(activeType)};
-    
-    filterPokemonList(activeType)
-    {
-        if(activeType === 'all') this.setState({ activePokemonList: this.props.pokemon });
-        else this.setState({ activePokemonList: this.props.pokemon.filter(pokemon => pokemon.types.find(type => type === activeType))});
-    }
-
     render() {
         return (
             <div>
@@ -35,7 +19,7 @@ class App extends Component {
                     types={this.props.types}
                 />
                 <PokemonList 
-                    pokemon={this.state.activePokemonList}
+                    pokemon={this.props.pokemon}
                     types={this.props.types}
                 />
             </div>
@@ -43,7 +27,7 @@ class App extends Component {
     }
 }
 
-function mapStateToProps(state, ownProps)
+function mapStateToProps(state)
 {
     return state;
 }

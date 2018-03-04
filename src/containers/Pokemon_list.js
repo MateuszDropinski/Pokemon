@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { PageSection, PokemonCard } from '../components';
+import { PageSection, PokemonCard, Loading } from '../components';
+
+var pokemonList = [];
 
 class PokemonList extends Component
 {
-    renderPokemonList(pokemon)
+    renderPokemonCard(pokemon)
     {
         let typesColors = [];
         pokemon.types.map(type => typesColors.push(this.props.types[type]));
@@ -14,7 +16,7 @@ class PokemonList extends Component
     {
         return(
             <PageSection>
-                {this.props.pokemon.map(pokemon => this.renderPokemonList(pokemon))}
+                {this.props.pokemon.map(pokemon =>  this.renderPokemonCard(pokemon))}
             </PageSection>
         )
     }

@@ -4,3 +4,4 @@ export * from './Pokemon_card';
 export * from './Card_section';
 export * from './Input';
 export * from './Header';
+export * from './Loading';
