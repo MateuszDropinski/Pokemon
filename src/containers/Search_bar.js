@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { PageSection, Input } from '../components';
+import { searchTerm } from '../actions';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
 
 const SubmitInput = styled.input`
     width:50px;
@@ -21,6 +23,14 @@ const SubmitInput = styled.input`
     }
 `;
 
+const SearchInput = styled.input`
+        width:200px;
+        font-size: 1rem;
+        padding:5px;
+        border-radius:2px;
+        border:1px solid #000000;
+    `;
+
 class SearchBar extends Component
 {
     constructor(props)
@@ -28,11 +38,13 @@ class SearchBar extends Component
         super(props);
         
         this.state = { searchPokemon: "" };
+        
+        this.onInputChange = this.onInputChange.bind(this);
     }
     
-    onInputChange(e)
+    onInputChange(evt)
     {
-        this.setState({ searchPokemon: e.target.value});
+        this.setState({ searchPokemon: evt.target.value});
     }
     
     onFormSubmit(e)
@@ -40,26 +52,30 @@ class SearchBar extends Component
         e.preventDefault();
         
         this.setState({ searchPokemon: "" });
+        this.props.searchTerm(this.state.searchPokemon);
     }
     
     render()
     {
         return (
-            <PageSection>
-                <form onSubmit={ this.onFormSubmit.bind(this) }>
-                    <Input
-                        placeholder="Find your pokemon..."
-                        value = { this.state.searchPokemon }
-                        onChange = { this.onInputChange.bind(this) }
-                    />      
-                    <SubmitInput 
-                        type="submit"
-                        value="Search!"
-                    />                
-                </form>                                 
-            </PageSection>
+            <form onSubmit={ this.onFormSubmit.bind(this) } key="searchForm">
+                <SearchInput
+                    placeholder="Find your pokemon..."
+                    value = { this.state.searchPokemon }
+                    onChange = { this.onInputChange }
+                />      
+                <SubmitInput 
+                    type="submit"
+                    value="Search!"
+                />                
+            </form>      
         )
     }
 }
 
-export default SearchBar;
+function mapDispatchToProps(dispatch)
+{
+    return bindActionCreators({ searchTerm }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(SearchBar);

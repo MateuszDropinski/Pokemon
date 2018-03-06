@@ -35,7 +35,7 @@ class PokemonCard extends Component
     renderType(type, colors)
     {
         return  <PokemonType key={type} type={type} backgroundColor={colors.backgroundColor} color={colors.color} />;
-    }    
+    }  
     
     render()
     {

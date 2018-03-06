@@ -7,10 +7,29 @@ import { connect } from 'react-redux';
 
 class App extends Component {  
     
+    constructor(props)
+    {
+        super(props);
+        
+        this.state = { lastType: "all", lastTerm: "", whichFilter: ""};
+    }
+    
+    componentWillReceiveProps(props)
+    {
+        if(this.props.activeType !== props.activeType)
+            this.setState({whichFilter:"type"});
+        else if(this.props.searchTerm !== props.searchTerm)
+            this.setState({whichFilter:"term"});
+        else 
+            this.setState({whichFilter:""})
+    }
+    
     getPokemonArray()
     {
-        if(this.props.activeType != 'all')
+        if(this.props.activeType != 'all' && this.state.whichFilter === "type")
             return this.props.pokemon.filter(pokemon => pokemon.types.find(type => type === this.props.activeType));
+        else if(this.props.searchTerm != "" && this.state.whichFilter === "term")
+            return this.props.pokemon.filter(pokemon => pokemon.name.includes(this.props.searchTerm));
         else 
             return this.props.pokemon;
     }
@@ -22,8 +41,10 @@ class App extends Component {
                     <Header>
                         List of Pokemon
                     </Header>
-                </PageSection>                
-                <SearchBar />
+                </PageSection>     
+                <PageSection>
+                    <SearchBar />
+                </PageSection>       
                 <PokemonTypes 
                     types={this.props.types}
                 />
