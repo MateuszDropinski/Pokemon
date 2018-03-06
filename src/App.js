@@ -5,8 +5,17 @@ import PokemonList from './containers/Pokemon_list';
 import { Header, PageSection } from './components';
 import { connect } from 'react-redux';
 
-class App extends Component {   
-    render() {
+class App extends Component {  
+    
+    getPokemonArray()
+    {
+        if(this.props.activeType != 'all')
+            return this.props.pokemon.filter(pokemon => pokemon.types.find(type => type === this.props.activeType));
+        else 
+            return this.props.pokemon;
+    }
+    
+    render() {                             
         return (
             <div>
                 <PageSection>
@@ -19,7 +28,7 @@ class App extends Component {
                     types={this.props.types}
                 />
                 <PokemonList 
-                    pokemon={this.props.pokemon}
+                    pokemon={this.getPokemonArray()}
                     types={this.props.types}
                 />
             </div>
@@ -28,7 +37,7 @@ class App extends Component {
 }
 
 function mapStateToProps(state)
-{
+{   
     return state;
 }
 
