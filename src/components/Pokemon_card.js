@@ -44,7 +44,7 @@ class PokemonCard extends Component
         weight/=10;
         
         return(
-            <Card background={() => this.createBackground(types)}>
+            <Card background={() => this.createBackground(types)} key={name}>
                 <Header>{name}</Header>     
                 <Image src={image} alt={name + " image"} />
                 <CardSection name="height" value={height + " m"}></CardSection>

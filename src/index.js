@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
 import { injectGlobal } from 'styled-components';
 import ReduxPromise from 'redux-promise';
+import { media } from './data/media_style';
 
 import reducers from './reducers';
 
@@ -21,6 +22,7 @@ injectGlobal`
         font-size:62.5%;
         font-family: 'Raleway', sans-serif;
         margin:0px;
+        ${media.xs`font-size:70%;`}
     }
 `;
 
