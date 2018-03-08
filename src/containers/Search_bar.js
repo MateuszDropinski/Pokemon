@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import { searchTerm } from '../actions';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
+import { media } from '../data/media_style';
 
 const SubmitInput = styled.input`
-    width:50px;
     font-size: 1rem;
     padding:5px;
     border:1px solid #000000;
@@ -21,15 +21,22 @@ const SubmitInput = styled.input`
         background-color:#000000;
         color:#ffffff;
     }
+
+    ${media.xs`padding:10px;`}
+    ${media.sm`padding:15px;margin-left:10px;`}
 `;
 
 const SearchInput = styled.input`
-        width:200px;
-        font-size: 1rem;
-        padding:5px;
-        border-radius:2px;
-        border:1px solid #000000;
-    `;
+    width:200px;
+    font-size: 1rem;
+    padding:5px;
+    border-radius:2px;
+    border:1px solid #000000;
+
+    ${media.xs`padding:10px;width:300px;`}
+    ${media.sm`padding:15px;width:400px`}
+    ${media.md`width:500px;`}
+`;
 
 class SearchBar extends Component
 {

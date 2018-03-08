@@ -5,7 +5,7 @@ const Header = ({ children }) =>
 {
     const Title = styled.h2`
         text-align:center;
-        font-size:2rem;
+        font-size:2.5rem;
         margin:0px;
         
         &:first-letter

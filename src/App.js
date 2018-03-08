@@ -26,10 +26,10 @@ class App extends Component {
     
     getPokemonArray()
     {
-        if(this.props.activeType != 'all' && this.state.whichFilter === "type")
+        if(this.props.activeType !== 'all' && this.state.whichFilter === "type")
             return this.props.pokemon.filter(pokemon => pokemon.types.find(type => type === this.props.activeType));
-        else if(this.props.searchTerm != "" && this.state.whichFilter === "term")
-            return this.props.pokemon.filter(pokemon => pokemon.name.includes(this.props.searchTerm));
+        else if(this.props.searchTerm !== "" && this.state.whichFilter === "term")
+            return this.props.pokemon.filter(pokemon => pokemon.name.includes(this.props.searchTerm.toLowerCase()));
         else 
             return this.props.pokemon;
     }

@@ -17,12 +17,16 @@ injectGlobal`
     {
         box-sizing:border-box;
     }
-    body,html
+    body
     {
         font-size:62.5%;
-        font-family: 'Raleway', sans-serif;
+        font-family: 'Bitter', serif;
         margin:0px;
+        background-color:rgba(187, 247, 255, 0.2);
         ${media.xs`font-size:70%;`}
+        ${media.sm`font-size:80%;padding:10px;`}
+        ${media.md`font-size:90%;padding:20px;`}
+        ${media.lg`font-size:100%;padding:30px;`}
     }
 `;
 

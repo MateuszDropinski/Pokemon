@@ -2,9 +2,9 @@ import {css} from 'styled-components';
 
 const sizes = {
     xs:576,
-    sm:768,
-    md:992,
-    lg:1200
+    sm:992,
+    md:1200,
+    lg:1500
 }
 
 export const media = Object.keys(sizes).reduce((acc, label) => {

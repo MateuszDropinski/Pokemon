@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { PageSection, PokemonCard, Loading } from '../components';
+import React from 'react';
+import { PageSection, PokemonCard } from '../components';
 
 const PokemonList = ({ pokemon, types }) =>
 {       
