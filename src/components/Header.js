@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Header = ({ children }) =>
+const Header = ({ children, size }) =>
 {
     const Title = styled.h2`
         text-align:center;
-        font-size:2.5rem;
+        font-size:${props => props.size === "small" ? "1.7rem" : "2.3rem"};
         margin:0px;
         
         &:first-letter
@@ -15,7 +15,7 @@ const Header = ({ children }) =>
     `;
     
     return (
-        <Title>
+        <Title size={size || "large"}>
             {children}
         </Title>
     )

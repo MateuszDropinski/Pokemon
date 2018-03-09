@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import SearchBar from './containers/Search_bar';
 import PokemonTypes from './containers/Pokemon_types';
 import PokemonList from './containers/Pokemon_list';

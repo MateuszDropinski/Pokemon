@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { PageSection, PokemonCard } from '../components';
 
 const PokemonList = ({ pokemon, types }) =>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import { PageSection, PokemonType } from '../components';
 
 class PokemonTypes extends Component

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { CardSection, PokemonType, Header } from './';
 import styled from 'styled-components';
+
+import { CardSection, PokemonType, Header } from './';
 import { media } from '../data/media_style';
 
 const Card = styled.article`
@@ -12,10 +13,7 @@ const Card = styled.article`
     margin:0px 20px 20px 20px;
     padding:20px;
     background:${props => props.background};
-
-    ${media.xs`padding:30px;margin:0px 15px 40px 15px; width:250px;`}
-    ${media.sm`width:300px; margin:0px 20px 40px 20px;`}
-    ${media.md`margin:0px 30px 50px 30px;`}
+    ${media.md`width:250px; margin:0px 25px 50px 25px;`}
 `;
     
 const Image = styled.img`
@@ -24,8 +22,6 @@ const Image = styled.img`
     align-self:center;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     margin:5px 0px;
-
-    ${media.xs`margin:10px 0px;`}
 `;
 
 class PokemonCard extends Component
@@ -52,7 +48,7 @@ class PokemonCard extends Component
         
         return(
             <Card background={() => this.createBackground(types)} key={name}>
-                <Header>{name}</Header>     
+                <Header size="small">{name}</Header>     
                 <Image src={image} alt={name + " image"} />
                 <CardSection name="height" value={height + " m"}></CardSection>
                 <CardSection name="weight" value={weight + " kg"}></CardSection>
