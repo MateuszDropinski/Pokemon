@@ -24,7 +24,7 @@ injectGlobal`
     }
     body
     {
-        font-family: 'Raleway', sans-serif;
+        font-family: 'Montserrat', sans-serif;
         margin:0px;
         background-color:rgba(187, 247, 255, 0.2);
         ${media.md`padding:20px;`}
