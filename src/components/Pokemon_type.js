@@ -45,7 +45,7 @@ class PokemonType extends Component
         return (
             <TypeTile 
                backgroundColor={backgroundColor} 
-               color = {color} 
+               color = {color } 
                type = {type} 
                onClick = {(e) => this.onButtonClick(e, type)}
             >
